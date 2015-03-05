@@ -1,0 +1,18 @@
+<template name="teams">
+  <h3>Teams</h3>
+  {{#if isCreatingTeam}}
+    <form class="create-team form-create"> 
+      <input name="name" type="text">
+      <button type="submit">Submit</button>
+      <a class="cancel" href="#">Cancel</a>
+    </form>
+  {{else}}
+    <a class="create" href="#">Create</a>
+  {{/if}}
+ 
+  <ul>
+    {{#each teams}}
+      {{> team}}
+    {{/each}}
+  </ul>
+</template>
