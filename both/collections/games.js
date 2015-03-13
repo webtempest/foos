@@ -1,6 +1,6 @@
-Teams = new Meteor.Collection('teams');
+Games = new Meteor.Collection('games');
 
-Teams.allow({
+Games.allow({
   insert: function (userId, doc) {
     return (userId && doc.ownerId === userId);
   },
