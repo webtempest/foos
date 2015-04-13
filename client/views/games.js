@@ -28,13 +28,13 @@ Template.games.events({
     e.preventDefault();
  
     var team1 = {
-      id: tpl.$("select[name='teamOne']").val(),
+      _id: tpl.$("select[name='teamOne']").val(),
       name: tpl.$("select[name='teamOne'] option:selected").text(),
       score: 0
     }
  
     var team2 = {
-      id: tpl.$("select[name='teamTwo']").val(),
+      _id: tpl.$("select[name='teamTwo']").val(),
       name: tpl.$("select[name='teamTwo'] option:selected").text(),
       score: 0
     }
@@ -49,8 +49,8 @@ Template.games.events({
     var gameId = Games.insert(game);
 
     // Add this game to both teams gameIds
-    Teams.update({_id: team1.id}, {$addToSet: { gameIds: gameId}});
-    Teams.update({_id: team2.id}, {$addToSet: { gameIds: gameId}});    
+    Teams.update({_id: team1._id}, {$addToSet: { gameIds: gameId}});
+    Teams.update({_id: team2._id}, {$addToSet: { gameIds: gameId}});    
 
     Session.set('isCreatingGame', null);
   }
