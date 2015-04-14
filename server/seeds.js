@@ -38,8 +38,8 @@ Meteor.startup(function () {
       createdAt: new Date,
       ownerId: ownerId,
       teams: [
-        {name: team1.name, _id: team1._id, score: 0},
-        {name: team2.name, _id: team2._id, score: 0}
+        {name: team1.name, id: team1._id, score: 0},
+        {name: team2.name, id: team2._id, score: 0}
       ]
     };
    
