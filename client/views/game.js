@@ -6,13 +6,14 @@ Template.game.events({
  
   "click a.delete-game": function(e, tpl){
     e.preventDefault();
-    var self = this;
-    Games.remove(this._id, function(error){
-      if(typeof error === "undefined" || error === null){
-        var teams = Teams.find({gameIds: {$in: [self._id]}});
-        _(teams.fetch()).each(function(team){
-          Teams.update({_id: team._id}, {$pull: {gameIds: self._id}});
-        });
+    var gameId  = this._id;
+    var teamIdA = this.teams[0].id;
+    var teamIdB = this.teams[1].id;
+
+    Games.remove(gameId, function (error) {
+      if (!error) {
+        Teams.update({_id: teamIdA}, {$pull: {gameIds: gameId}});
+        Teams.update({_id: teamIdB}, {$pull: {gameIds: gameId}});
       }
     });
   },

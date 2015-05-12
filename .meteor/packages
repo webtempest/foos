@@ -8,3 +8,8 @@ meteor-platform
 accounts-password
 accounts-ui
 msavin:mongol
+iron:router
+zimme:iron-router-active
+useraccounts:core
+useraccounts:unstyled
+sacha:spin
