@@ -13,7 +13,7 @@ Template.team.events({
   "submit form.form-edit": function(e, tpl){
     e.preventDefault();
  
-    var teamName = tpl.$('input[name="name"]').val();
+    var teamName = tpl.$('input[name=name]').val();
     var self = this;
 
     if(teamName.length){
@@ -22,8 +22,8 @@ Template.team.events({
           alert(error.reason);
           Session.set('editedTeamId', self._id);
           Tracker.afterFlush(function(){
-            tpl.$('input[name="name"]').val(teamName);
-            tpl.$('input[name="name"]').focus();
+            tpl.$('input[name=name]').val(teamName);
+            tpl.$('input[name=name]').focus();
           });
         }
       });
