@@ -28,13 +28,13 @@ Meteor.methods({
     }
 
     var teamOneData = {
-      id: teamOne._id,
+      _id: teamOne._id,
       name: teamOne.name,
       score: 0
     };
 
     var teamTwoData = {
-      id: teamTwo._id,
+      _id: teamTwo._id,
       name: teamTwo.name,
       score: 0
     };
@@ -49,8 +49,8 @@ Meteor.methods({
     var gameId = Games.insert(game);
  
     // Update each team's cached array of game ids
-    Teams.update({_id: teamOneData.id}, {$addToSet: { gameIds: gameId}});
-    Teams.update({_id: teamTwoData.id}, {$addToSet: { gameIds: gameId}});
+    Teams.update({_id: teamOneData._id}, {$addToSet: { gameIds: gameId}});
+    Teams.update({_id: teamTwoData._id}, {$addToSet: { gameIds: gameId}});
  
     // Copy Meteor.insert(), which just returns the _id
     return gameId;

@@ -27,7 +27,7 @@ Meteor.methods({
      
           games.fetch().forEach(function(game){
             game.teams.map(function(team){
-              if(team.id == teamId){
+              if(team._id == teamId){
                 team.name = newName;
               }
 

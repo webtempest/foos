@@ -7,8 +7,8 @@ Template.game.events({
   "click a.delete-game": function(e, tpl){
     e.preventDefault();
     var gameId  = this._id;
-    var teamIdA = this.teams[0].id;
-    var teamIdB = this.teams[1].id;
+    var teamIdA = this.teams[0]._id;
+    var teamIdB = this.teams[1]._id;
 
     Games.remove(gameId, function (error) {
       if (!error) {
