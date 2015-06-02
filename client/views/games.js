@@ -21,7 +21,7 @@ Template.games.events({
  
   "click a.cancel": function(e, tpl){
     e.preventDefault();
-    Session.set('isCreatingGame', null);
+    Session.set('isCreatingGame', false);
   },
     
   "submit form.form-create": function(e, tpl){
@@ -40,6 +40,6 @@ Template.games.events({
       }
     });
 
-    Session.set('isCreatingGame', null);
+    Session.set('isCreatingGame', false);
   }
 });
