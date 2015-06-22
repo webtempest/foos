@@ -23,17 +23,19 @@ Meteor.methods({
     if(team){
       Teams.update(teamId, {$set: {name: newName}}, function(error){
         if(!error){
-          var games = Games.find({_id: {$in: team.gameIds}});
-     
-          games.fetch().forEach(function(game){
-            game.teams.map(function(team){
-              if(team._id == teamId){
-                team.name = newName;
-              }
+          if(team.gameIds){
+            var games = Games.find({_id: {$in: team.gameIds}});
+       
+            games.fetch().forEach(function(game){
+              game.teams.map(function(team){
+                if(team._id == teamId){
+                  team.name = newName;
+                }
 
-              Games.update({_id: game._id}, {$set: {teams: game.teams}});
-            })
-          });
+                Games.update({_id: game._id}, {$set: {teams: game.teams}});
+              })
+            });
+          }
 
           return teamId;
         }
