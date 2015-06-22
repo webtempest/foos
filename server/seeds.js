@@ -35,7 +35,6 @@ Meteor.startup(function () {
 
     var game = {
       completed: false,
-      createdAt: new Date(),
       ownerId: ownerId,
       teams: [
         {name: team1.name, _id: team1._id, score: 0},
