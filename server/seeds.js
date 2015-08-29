@@ -42,7 +42,7 @@ Meteor.startup(function () {
       ]
     };
    
-    gameId = Games.insert(game);
+    var gameId = Games.insert(game);
 
     // Add this game to both teams gameIds
     Teams.update({_id: team1._id}, {$addToSet: { gameIds: gameId}});
