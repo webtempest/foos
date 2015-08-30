@@ -32,7 +32,7 @@ Template.teams.events({
         alert(error);
         Session.set('isCreatingTeam', true);
         Tracker.afterFlush(function(){
-          tpl.$('input[name=name]').val(teamName);
+          tpl.$('input[name=name]').val(team.name);
         });
       }
     });
